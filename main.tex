@@ -1,0 +1,557 @@
+\documentclass[11pt]{amsart}
+\textwidth=14.5cm \oddsidemargin=1cm
+\evensidemargin=1cm
+\usepackage{amsmath}
+\usepackage{amsxtra}
+\usepackage{amscd}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usepackage{bbm}
+\usepackage{dsfont}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{propconstr}[thm]{Proposition-Construction}
+\newtheorem{propdefn}[thm]{Proposition-Definition}
+\newtheorem{ax}[thm]{Axiom}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{fact}[thm]{Fact}
+
+\newcommand{\thenotation}{}  % to make the notation environment unnumbered
+
+\theoremstyle{definition}
+
+\theoremstyle{remark}
+
+\newcommand{\propconstrref}[1]{Proposition-Construction~\ref{#1}}
+\newcommand{\thmref}[1]{Theorem~\ref{#1}}
+\newcommand{\secref}[1]{Sect.~\ref{#1}}
+\newcommand{\lemref}[1]{Lemma~\ref{#1}}
+\newcommand{\propref}[1]{Proposition~\ref{#1}}
+\newcommand{\corref}[1]{Corollary~\ref{#1}}
+\newcommand{\conjref}[1]{Conjecture~\ref{#1}}
+\newcommand{\remref}[1]{Remark~\ref{#1}}
+\newcommand{\exref}[1]{Example~\ref{#1}}
+%\newcommand{\eqref}[1]{(\ref{#1})}
+
+\newcommand{\nc}{\newcommand}
+\nc{\renc}{\renewcommand}
+\nc{\ssec}{\section}
+\nc{\sssec}{\subsection}
+\nc{\on}{\operatorname}
+
+\nc\ol{\overline}
+\nc\wt{\widetilde}
+\nc\tboxtimes{\wt{\boxtimes}}
+\nc{\alp}{\alpha}
+
+\nc{\ZZ}{{\mathbb Z}}
+\nc{\NN}{{\mathbb N}}
+\nc{\CC}{{\mathbb C}}
+\nc{\JJ}{{\mathbb J}}
+\nc{\OO}{{\mathbb O}}
+\renc{\SS}{{\mathbb S}}
+\nc{\DD}{{\mathbb D}}
+\nc{\GG}{{\mathbb G}}
+\renewcommand{\AA}{{\mathbb A}}
+
+% \ + Capital Letter = mathcal
+\nc{\M}{{\mathcal M}}
+\nc{\N}{{\mathcal N}}
+\nc{\F}{{\mathcal F}}
+\nc{\D}{{\mathcal D}}
+\nc{\Q}{{\mathcal Q}}
+\nc{\Y}{{\mathcal Y}}
+\nc{\G}{{\mathcal G}}
+\nc{\E}{{\mathcal E}}
+\nc{\K}{{\mathcal K}}
+\nc{\CalC}{{\mathcal C}}
+\renewcommand{\O}{{\mathcal O}}
+\nc{\C}{{\mathcal C}}
+
+\renewcommand{\H}{{\mathcal H}}
+\renewcommand{\S}{{\mathcal S}}
+\nc{\T}{{\mathcal T}}
+\nc{\V}{{\mathcal V}}
+\renc{\P}{{\mathcal P}}
+\nc{\A}{{\mathcal A}}
+\nc{\B}{{\mathcal B}}
+\nc{\U}{{\mathcal U}}
+\renewcommand{\L}{{\mathcal L}}
+\nc{\I}{\mathcal I}
+\nc\X{\mathcal X}
+\renewcommand{\Y}{{\mathcal Y}}
+\nc\Z{\mathcal Z}
+
+% \ + Little Letter = mathfrak
+\nc{\f}{{\mathfrak f}}
+\renewcommand\k{{\mathfrak k}}
+\nc{\q}{{\mathfrak q}}
+\nc{\p}{{\mathfrak p}}
+\nc{\s}{{\mathfrak s}}
+\nc{\g}{{\mathfrak g}}
+\renewcommand{\t}{{\mathfrak t}}
+\renewcommand{\r}{{\mathfrak r}}
+\renewcommand{\i}{\mathfrak i}
+\renewcommand{\j}{\mathfrak j}
+\newcommand{\fc}{\mathfrak C}
+
+% Letter + ch = check
+\nc{\lambdach}{{\check\lambda}}
+\nc{\Lambdach}{{\check\Lambda}{}}
+\nc{\much}{{\check\mu}}
+\nc{\omegach}{{\check\omega}}
+\nc{\nuch}{{\check\nu}}
+\nc{\etach}{{\check\eta}}
+\nc{\alphach}{{\check\alpha}}
+\nc{\betach}{{\check\beta}}
+\nc{\rhoch}{{\check\rho}}
+\nc{\ch}{{\check h}}
+\nc{\ft}{\mathfrak T}
+\nc{\fA}{{\mathfrak A}}
+\nc{\fP}{{\mathfrak P}}
+
+
+%\nc\Dh{\widehat{\D}}
+
+\nc{\Fq}{{\mathbb F}_q}
+\nc{\Fqb}{\ol{{\mathbb F}_q}}
+\nc{\Ql}{\ol{{\mathbb Q}_\ell}}
+\nc{\id}{\text{id}}
+
+
+\nc\Spec{\on{Spec}}
+\nc\Mod{\on{Mod}}
+\nc{\Hom}{\on{Hom}}
+\nc{\Map}{\on{Map}}
+\nc{\Lie}{\on{Lie}}
+\nc{\Loc}{\on{Loc}}
+\nc{\Pic}{\on{Pic}}
+\nc{\Bun}{\on{Bun}}
+\nc{\IC}{\on{IC}}
+\nc{\Aut}{\on{Aut}}
+\nc{\rk}{\on{rk}}
+\nc{\Sh}{\on{Sh}}
+\nc{\Perv}{\on{Perv}}
+\nc{\pos}{{\on{pos}}}
+\nc{\Conv}{\on{Conv}}
+\nc{\Sph}{\on{Sph}}
+\nc{\Sym}{\on{Sym}}
+\nc{\Gr}{\on{Gr}}
+\nc{\hcn}{\on{\mathfrak{N}_{\on{hc}}}}
+\nc{\psh}{\on{PSh}}
+\nc{\grb}{\overline{\Gr}}
+\nc{\Fun}{\on{Fun}}
+\nc{\op}{\on{op}}
+\nc{\Rep}{\on{Rep}}
+\nc{\ext}{\on{Ext}}
+\nc{\Coh}{\on{Coh}}
+
+\nc{\BunBb}{\overline{\Bun}_B}
+\nc{\Buno}{\overset{o}{\Bun}}
+\nc{\BunPb}{{\overline{\Bun}_P}}
+\nc{\BunBM}{\overline{\Bun}_{B(M)}}
+\nc{\BunPbw}{{\widetilde{\Bun}_P}}
+\nc{\BunBP}{\widetilde{\Bun}_{B,P}}
+\nc{\GUb}{\overline{G/U}}
+\nc{\GUPb}{\overline{G/U(P)}}
+\newcommand{\Pone}{{\mathbb P}^1}
+\newcommand{\Aone}{{\mathbb A}^1}
+\newcommand{\Ga}{{\mathbb G}_a}
+\newcommand{\Gm}{{{\mathbb G}_m}}
+\newcommand{\bimg}{{\ Bimodgr\  }}
+\newcommand{\DMS}{{\ Satak-model\  }}
+\newcommand{\bDMS}{{\ biSatak-model\  }}
+\newcommand{\GO}{G_\O}
+\newcommand{\GF}{\on{G_F}}
+\newcommand{\PerSatak}{{Perv_{\GO}(\Gr)}}
+\newcommand{\DerSatak}{{D_{\GO\rtimes\Gm}(\Gr)}}
+\newcommand{\DerSatakneloop}{{D_{\GO}(\Gr)}}
+\newcommand{\derloopca}{{\ DERLOOPCA\ }}
+\newcommand{\PerSatake}{{Perv_{\GO\rtimes\Gm}(\Gr)}}
+\newcommand{\cat}{\on{Cat_\infty}}
+\newcommand{\scat}{\on{Cat_\triangle}}
+\newcommand{\gpd}{\on{Gpd_\infty}}
+\newcommand{\sset}{\on{Set_\triangle}}
+\newcommand{\ssset}{\on{\mathbbm{Set}_\triangle}}
+\newcommand{\kan}{\on{Kan}}
+\newcommand{\qcat}{\on{QCat}}
+\newcommand{\kq}{\on{Set^{KQ}_\triangle}}
+\newcommand{\joyal}{\on{Set^{Joyal}_\triangle}}
+\newcommand{\skq}{\on{\mathbbm{Set}^{KQ}_\triangle}}
+\newcommand{\pt}{\on{pt}}
+
+\newcommand{\Dsym}{{\Sym^{[]}(\Lg)}}
+
+\nc{\Hhom}{\underline{\on{Hom}}}
+\nc\syminfty{\on{Sym}^{\infty}}
+\nc\lal{\ol{\lambda}}
+\nc\xl{\ol{x}}
+\nc\thl{\ol{\theta}}
+\nc\nul{\ol{\nu}}
+\nc\mul{\ol{\mu}}
+\nc{\Sum}{\Sigma}
+\nc{\oX}{\overset{o}{X}{}}
+
+\renewcommand{\proof}{{\it Proof }}
+\newcommand{\proofpt}{{\it Proof. }}
+
+\title{Notes on derived Satake equivalence}
+\author{Xuhang Zhang}
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+In this section, we explain the classical construction of derived Satake equivalence following Bezrukavnikov and Finkelberg in~\cite{BF}. And we will introduce their variant in the framework of derived algebraic geometry in the next section.  Let us fix a \textbf{simply connected}\footnote{So that, the affine Grassmannian is not connected.} complex reductive group $G$ and let $\Gr=\GF/\GO$ be the affine Grassmannian variety associated to $G$. Let $\Gm$ acts on $\GF$ by rotation, i.e. $a.f(t)=f(at)$ for any $a
+\in\Gm$ and $f(t)\in \K$.
+
+Recall that we have the geometric Satake equivalence:
+$$\on{F}: \PerSatak\xrightarrow{\sim} \Rep(G^\vee).$$
+Now we want to extend it to $\DerSatakneloop$. The problem is that $\DerSatakneloop$ is not the derived category of the abelian categoey $\PerSatak$ and in particular, $\ext^i(\F,\G):=\Hom_{\DerSatakneloop}(\F,\G[i])\neq \ext^i_{\PerSatak}(\F,\G)$ for $\F,\G\in\PerSatak$.
+
+However, according to Ginzburg's results in \cite{G}, we have the following lemma:
+
+\begin{lem}
+ The equivalent cohomology functor: 
+ \begin{equation}
+     H^\bullet_{\GO}(-):\DerSatakneloop\to D^{\on{b}}(H^\bullet_{\GO}(\Gr))
+ \end{equation}
+ is fully faithful.
+\end{lem}
+
+\section{total cohomology of affine Grassmannians}
+
+It is a direct corollary of a theorem of Quillen: there is a homeomorphism between topological space:
+$$\Gr\cong \Omega K,$$
+where $K\subset G$ is a maximal compact subgroup of $G$.
+
+By Quillen's result, $H^\bullet (\Gr)=H^\bullet(\Omega K)\cong H^\bullet(K)$. Note that the final isomorphism shifts the grading of $H^\bullet(\Omega K)$ by $1$. Recall that we have a fiber bundle $\on{E}K\to \on{BK}$ whose fiber is $K$. Therefore, $K$ is homotopy to $\Omega\on{B}K$. Finally, we know that
+\begin{equation}\label{cohomology of gr}
+    H^\bullet (\Gr)\cong H^\bullet(\on{B}G)=\CC[\t/W]
+\end{equation}
+where that first isomorphism is given by shifting the degree by $2$.
+
+Next, we would like to study the equivariant cohomology of the affine Grassmannian variety. As a $\CC$-vector space, $H^n_{\GO}(\Gr)$ is also not difficult to compute: recall that for any map $T\to \on{B}G$, let $P\to T$ be the corresponding $G$-bundle, then 
+$$T\times_{\on{B}G}[X/G]= P\times X/G,$$
+and hence $[X/G]\to \on{B}G$ is an $X$-fibration. Therefore, we have a spectral sequence:
+$$H^p_{G}(\pt; H^q(X))=H^p_{G}(\pt)\otimes H^q(X)\implies H^{p+q}_{G}(X).$$
+
+But in our case, $X=\Gr$ has the result of the parity vanishing on the cohomology groups, thus the spectral sequence converges on the second page. Finally, we know as graded vector spaces, we have the following isomorphisms:
+
+\begin{equation}
+     H^\bullet_{\GO} (\Gr)\cong H^\bullet_{\GO} (\pt) \otimes H^\bullet (\Gr);
+\end{equation}
+
+\begin{equation}\label{equiv cohomology groups of gr}
+     H^\bullet_{\GO\rtimes \Gm} (\Gr)\cong H^\bullet_{\GO} (\pt) \otimes H^\bullet_{\Gm} (\pt) \otimes H^\bullet (\Gr).
+\end{equation}
+
+
+But, we also interested in the algebra structure of these cohomology rings. In fact, $H^{\bullet}_{\GO}(\Gr)$ was computed by V.~Ginzburg in~\cite{G} in terms of
+the universal centralizer bundle of $\check{\g}$. He regarded $H^{\bullet}_{\GO}(\Gr)$ as a $H^{\bullet}_{\GO}(\pt)=\CC[\t/W]$-module and hence a coherent sheaf on $\t/W$. He computed each fiber of the coherent sheaf.
+
+And it turns out that Ginzburg's local result can be integrated into a global one by the quantization by Bezrukavnikov and Finkelberg in~\cite{BF}. In the following, we follow their method to compute $H^\bullet_{\GO\rtimes \Gm}(\Gr)$ where $\Gm$ acts by rotation.
+
+Note that, $H^\bullet_{\GO\rtimes \Gm}(\Gr)=H^\bullet_{\Gm}(\GO\backslash \GF/\GO)$ is a $H^\bullet_{\Gm}(\GO\backslash \pt/\GO)=\CC[\t/W\times \t/W\times \AA^1]$-module. And therefore, $H^\bullet_{\GO}(\Gr)$ is a quasi-coherent sheaf on $\t/W\times \t/W$. Let me denote the corresponding maps as $\on{pr}_i^*: H^\bullet_{\Gm}(\pt)\to H^\bullet_{\GO\rtimes \Gm}(\Gr)$. Also, let 
+\begin{equation}
+    \alpha : H^\bullet_{\Gm}(\GO\backslash \pt/\GO)\to H^\bullet_{\Gm}(\GO\backslash \Gr/\GO)
+\end{equation}
+be the natural map.
+
+By some general facts of equivariant cohomology, we have $$H^\bullet_{\GO\rtimes \Gm}(\Gr)\otimes_{H^\bullet_G(\pt)} H^\bullet_T(\pt)\hookrightarrow \varprojlim_{\lambda} H^\bullet_{\GO\rtimes \Gm}(\overline{\on{Gr}^\lambda})\otimes_{H^\bullet_G(\pt)} H^\bullet_T(\pt)=\varprojlim_{\lambda} H^\bullet_{T\times \Gm}(\overline{\on{Gr}^\lambda})$$. Moreover, by the localization theorem, $H^\bullet_{T\times \Gm}(\overline{\on{Gr}^\lambda})\otimes_{H^\bullet_{T\times \Gm}(\pt)}\on{Frac}(H^\bullet_{T\times \Gm}(\pt))= H^\bullet(\overline{\on{Gr}^\lambda}^{T\times \Gm})\otimes \on{Frac}(H^\bullet_{T\times \Gm}(\pt))$ and hence we have the following embedding
+\begin{equation}
+    H^\bullet_{\GO\rtimes \Gm}(\Gr)\otimes_{H^\bullet_{T\times \Gm}(\pt)} \on{Frac}(H^\bullet_{T\times \Gm}(\pt)) \hookrightarrow \prod_{\lambda\in X^*} H^{\bullet}_{T\times\Gm}(t^{\lambda})\otimes_{H^\bullet_G(\pt)} \on{Frac}(H^\bullet_T(\pt)).
+\end{equation}
+
+Clearly, left hand side is a quasi-coherent sheaf on $\t\times \t/W\times \AA^1$. Also, right hand side is a quasi-coherent sheaf on $\t\times \t/W\times \AA^1$: let $T_\lambda$ be the inverse image of $t^\lambda$ in $\GF$. Then $H^\bullet_{T\times \Gm}(t^\lambda)=H^\bullet_{\Gm}(T\backslash T_\lambda/\GO)$ is a $H^\bullet_{T}(\pt)\otimes H^\bullet_{\GO}(\pt)\otimes H^\bullet_{\Gm}(\pt)=\CC[\t\times \t/W\times \AA^1]$-module.
+
+Moreover, this embedding is a homomorphism.
+
+Rather than $H^\bullet_{T\times \Gm}(t^\lambda)$, it is more easy to compute $H^\bullet_{T\times \Gm}(\Tilde{\lambda})$ which a quasi-coherent sheaf on $\t\times \t\times \AA^1$ obtained by pullback along the projection $\pi: \t\times \t\times \AA^1\to \t\times \t/W\times \AA^1$.
+
+\begin{lem}
+    As a quasi-coherent sheaf on $\t\times \t\times \AA^1$, $H^{\bullet}_{T\rtimes \Gm}(\Tilde{\lambda})$ is isomorphic to $\CC[\Gamma_\lambda]$, where $\Gamma_{\lambda}=\{(t_1,t_2,a)\ |\ t_1= t_2+ \lambda(a)\}$ is a closed subvariety of $\t\times \t\times \AA^1$.
+\end{lem}
+\begin{proof}
+    Note that we have a homotopy equivalence $T_{\lambda}\to T$ and the image of $I\subset T_{\lambda}$ under this homotopy equivalence is also $T$. Therefore, as quasi-coherent sheaves on $\t\times \t\times \AA^1$, we have 
+    $$H^{\bullet}_{T\rtimes \Gm}(\Tilde{\lambda})=H^\bullet_{\Gm}(T\backslash T_{\lambda}/I)\cong H^{\bullet}_{\Gm}(T\backslash T/T)=H^\bullet_{T\times T\times \Gm}(T),$$
+    where $T\times T\times \Gm$ acts on $T$ by 
+    $$(t_1,t_2,a)\cdot t=t_1 t t_2^{-1}\lambda(a).$$
+\end{proof}
+
+By this lemma, we know $H^\bullet_{T\times \Gm}(t^\lambda)=\CC[\pi(\Gamma_{\lambda})]$. Moreover, the localized map:
+\begin{equation}
+\begin{aligned}
+\alpha_{loc} :\CC[\t/W\times \t/W\times \AA^1]\otimes_{\CC[\t/W\times \AA^1]} \on{Frac}(\CC[\t\times \AA^1])&\to H^{\bullet}_{\GO\rtimes \Gm}(\Gr)\otimes_{\CC[\t/W\times \AA^1]} \on{Frac}(\CC[\t\times \AA^1])\\ & \hookrightarrow \prod_{\lambda} \CC[\Gamma_{\lambda}]\otimes_{\CC[\t\times \AA^1]} \on{Frac}(\CC[\t\times \AA^1])
+\end{aligned}
+\end{equation}
+is a map given by restriction functions on $\t\times \t\times \AA^1$ to $\bigsqcup_{\lambda}\Gamma_{\lambda}$.
+
+\begin{cor}
+\begin{enumerate}
+    \item \begin{equation}
+        \on{pr}_1^*|_{\hbar=0}=\on{pr}_2^*|_{\hbar=0}.
+    \end{equation}
+    \item $\alpha$ is injective.
+\end{enumerate}
+    
+\end{cor}
+\begin{proof}
+    Note that $H^{\bullet}_{\GO\rtimes \Gm}(\Gr)$ is a free module (thus torsion free) over $\CC[\t/W\times\Aone]$ since $H^{\bullet}_{\GO\rtimes \Gm}(\Gr)\cong H^{\bullet}_{\GO\rtimes \Gm}(\pt)\otimes H^{\bullet}(\Gr)$. Therefore, both two statements can be check after localization. But restricted to $\hbar=0$, $\Gamma_{\lambda}|_{\hbar=0}=\Delta_{\t/W\times \t/W}$ and the discussion above implies the equality. The second statement follows from the fact that $\bigsqcup_{\lambda}\Gamma_{\lambda}$ is a dense subset of $\t\times \t\times \AA^1$.
+\end{proof}
+
+Recall that for a closed subvariety $Z\subset X$ defined by the ideal $I$, we can define the deformation of the normal cone $\N_{Z}(X)$ as follows: its algebra is the subalgebra in $\O_X[\hbar,\hbar^{-1}]$ generated by $I\hbar^{-1}$ and $\O_X[\hbar]$. Then our $\alpha$ above can be extended to $\CC[\N_{\Delta}(\t/W\times \t/W)]$. Let us still denote this map as $\alpha$ and note that it is still injective.
+
+\begin{thm}
+    There is a natural grading on $\CC[\N_{\Delta}(\t/W\times \t/W)]$ such that
+    $\alpha:\CC[\N_{\Delta}(\t/W\times \t/W)]\to H^{\bullet}_{\GO\rtimes \Gm}(\Gr)$ is an isomorphism of graded algebras.
+\end{thm}
+
+\begin{proof}
+    By Equation~\ref{equiv cohomology groups of gr}, we have the isomorphisms pf graded algebras:
+    $$H^{\bullet}_{\GO\rtimes \Gm}(\Gr)\cong H^{\bullet}_{\GO}(\pt)\otimes H^{\bullet}_{\Gm}(\pt)\otimes H^{\bullet}(\Gr)\cong \CC[x_1,\dots,x_r,\hbar,y_1\dots,y_r],$$
+    where the degree of $x_i$ is $2m_i$ (a canonical basis in $\CC[\t]^{W}$), the degree of $\hbar$ is $2$ and the degree of $y_i$ is $2m_i-2$ by Equation~\ref{cohomology of gr}. 
+    
+    Note that this grading is obtained from $\Gm$ actions on $\t$( $\t/W$) and $\Aone$ with wight 2. Therefore, these action also induce a grading on $\CC[\N_{\Delta}(\t/W\times \t/W)]$ making $\alpha$ a map of graded algebra. Moreover, we know that $\t/W$ is isomorphic to an affine space $V$, then $\N_{\Delta}(V\times V)\cong \N_{V}(V\times V)$ and assume the coordinates of $V\times V$ are $x_1,\dots,x_r,u_1,\dots,u_r$, then by defining $y_i=u_i\hbar$, we have $\CC[\N_{V}(V\times V)]=\CC[x_1,\dots,x_r,\hbar,y_1\dots,y_r]$, where $\deg y_i=\deg u_i-\deg \hbar=\deg x_i -2$. This implies $\alpha$ is an isomorphism of graded algebra.
+\end{proof}
+
+Since the forgetting map $\Coh^{\Gm}(N_{\Delta}(\t/W\times t/W))\to \Coh^\Gm(\t/W\times \t/W\times \Aone)$ is fully faithful, we have the following direct corollary:
+\begin{cor}
+    The functor 
+    $$H^{i}_{\GO\rtimes\Gm}(-): \DerSatak\to D^{\on{b}}\Coh^\Gm(\t/W\times \t/W\times \Aone)$$
+    is fully faithfual.
+\end{cor}
+
+Therefore, to extend the classical geometric Satake equivalence, we need to study the cohomology $H^{i}_{\GO\rtimes\Gm}(\S(V))$ for a $V\in \Rep(G^\vee)$ as a graded coherent sheaf on $\t/W\times \t/W\times \Aone$. Again, we still have $H^{i}_{\GO\rtimes\Gm}(\S(V))=H^{i}_{T\rtimes\Gm}(\S(V))^W$, 
+
+\section{equivariant cohomology of sheaves}
+In this section, we compute the equivariant cohomology $H^\bullet_{\GO\rtimes\Gm}(\S(V))$ for a $V\in \Rep(G^\vee)$. Our strategy is as follows. First, embed it  into :
+$$ H^\bullet_{\GO\rtimes\Gm}(\S(V))=H^\bullet_{T\times\Gm}(\S(V))^W \hookrightarrow H^\bullet_{T\times\Gm}(\S(V))\otimes_{H^\bullet_{T\times\Gm}(\pt)} \on{Frac}H^\bullet_{T\times\Gm}(\pt). $$
+In the following, we construct a canonical filtration on $H^\bullet_{T\times\Gm}(\S(V))$ such that the associated graded $\CC[\t\times \t/W \times\Aone]$-module is isomorphic to $\bigoplus_\lambda \CC[\pi(\Gamma_\lambda)]\otimes V_\lambda$ where $V_\lambda$ is the corresponding weight space.
+Hence as $\on{Frac}H^\bullet_{T\times\Gm}(\pt)\otimes \CC[\t/W]$-module, the filtration splits(regraded as vector spaces), and we have the identification:
+$$H^\bullet_{T\times\Gm}(\S(V))\otimes_{H^\bullet_{T\times\Gm}(\pt)} \on{Frac}H^\bullet_{T\times\Gm}(\pt)= \bigoplus_\lambda \CC[\pi(\Gamma_\lambda)]\otimes V_\lambda\otimes_{H^\bullet_{T\times\Gm}(\pt)} \on{Frac}H^\bullet_{T\times\Gm}(\pt).$$
+Therefore, it suffice to construct the corresponding $W$ action on $\bigoplus_\lambda \CC[\pi(\Gamma_\lambda)]\otimes V_\lambda\otimes_{H^\bullet_{T\times\Gm}(\pt)} \on{Frac}H^\bullet_{T\times\Gm}(\pt)$ and identify the image of $H^\bullet_{\GO\rtimes\Gm}(\S(V))$ in the $W$-invariant subset.
+
+
+\subsection{canonical filtration}
+There is a canonical filtration on $H^\bullet_{T\times\Gm}(\Gr_n)$.
+
+\subsection{rank 1 cases}
+Let us first see an example for $G=PGL_2$. It is known that the $\GO$-orbits in $\Gr$ are parameterized non-negative numbers with the corresponding dimensions. Let us denote $\Gr_n$ as the closure of the n-dimensional orbit. It was shown that this variety is rationally smooth, hence $\IC_n$ and the dualizing sheaf are just shifted constant sheaves. Moreover, the equivariant cohomology of $\S(V_n)$ exactly $H^\bullet_{\GO\rtimes \Gm}(\Gr_n)=H^\bullet_{T\rtimes \Gm}(\Gr_n)^W$, where $V_n$ is the irreducible representation of $\mathfrak{sl}_2$ with highest weight $n$. 
+
+For the non-equivariant cohomology, by a result of Ginzburg, $H^\bullet(\Gr)=\CC[e]$ acts on $H^\bullet(\Gr_n)=V_n$, where $e$ is the first Chern class of determinant line bundle of the affine Grassmannian which can be identified with the regular nilpotent element $e\in \mathfrak{sl}_2$. Let us denote the fundamental class of $\Gr_n\cap \Bar{\mathfrak{T}}_{i}$ as $v_i\in H^{BM}_{n-i}(\Gr_n)=H^{n+i}(\Gr_n)$. Then, as an $H^\bullet(\Gr)$-module, $H^\bullet(\Gr_n)$ is generated by the fundamental class of $\Gr_n\cap \mathfrak{T}_{-n}=\Gr_n$ and the $\mathfrak{sl}_2$ action on $H^\bullet(\Gr_n)$ is given by 
+\begin{equation}\label{non-equiv formula}
+    h\cdot v_i=iv_i,\quad e\cdot v_i=\frac{n+i}{2} v_{i+1}, \quad f\cdot v_i=\frac{n-i}{2} v_{i-1}.
+\end{equation}
+
+Back to the equivariant cohomology, we denote the fundamental classes of  $\Gr_n\cap \Bar{\mathfrak{T}}_{i}$ as $\Tilde{v_i}\in H^{n+i}_{T\times \Gm}(\Gr_n)$. From the graded Nakayama's lemma, we know that $H^\bullet_{T\rtimes \Gm}(\Gr_n)$ as $H^\bullet_{T\rtimes \Gm}(\Gr)$ is generated by $\Tilde{v}_{-n}$. Therefore, it is isomorphic the coordinate ring of a closed subscheme of $\t\times\t/W\times\Aone$.
+
+\begin{lem}
+    Denote $A_n=\bigsqcup_{i\in wt(V_n)}\Gamma_i=\{(t_1,t_2,a)\ |\ t_1=t_2+ia \text{ for some }i\in wt(V_n) \}$. Then as $H^{\bullet}_{T\times\Gm}(\Gr)$-modules, we have the isomorphism:
+    $$ H^{\bullet}_{T\times\Gm}(\Gr_n)=\CC[\pi(A_n)], $$
+    sending $\tilde{v}_i$ to the constant function on $\pi(\Gamma_i)$. Furthermore, we also have a similar isomorphism for $\GO\rtimes\Gm$-equivariant version.
+\end{lem}
+
+Next, we would like to obtain a similar formula as (\ref{non-equiv formula}). Note that $H^{\bullet}_{T\times\Gm}(\Gr_n)$ admits a canonical filtration: $F^i$ is the $H^{\bullet}_{T\times\Gm}(\Gr)$-submodule generated $\Tilde{v}_i$. Evidently, $F^i$ is the image of the natuarl map $r_i:=\bar\iota_{i*}:H^{BM, T\times \Gm}_{2n-\bullet}(\bar\ft_i\cap \Gr_n)=H^{\bullet}_{\Bar{\mathfrak{T}}_i,T\times\Gm}(\Gr_n)\to H^{\bullet}_{T\times\Gm}(\Gr_n)$.Precisely, let us denote $\iota_i(resp.\ \bar\iota_i)$ as the embedding of $\ft_i\cap \Gr_n(resp.\ \bar\ft_i\cap \Gr_n)$ into $\Gr_n$, then $\tilde{v}_i=r_i\bar\iota_i^!\tilde{v}_{-n}$\footnote{Here $\bar\iota_i^!:H^\bullet(\Gr_n)=H^{BM}_{2n-\bullet}(\Gr_n)\to H^{BM}_{n-i-\bullet}(\bar\ft_i\cap \Gr_n)$ is given by $\alpha\mapsto [\bar\ft_i\cap\Gr_n]\cap\bar\iota^*_i(\alpha)$ for $\alpha\in H^k(\Gr_n)$(thus $\bar\iota^*_i(\alpha)\in H^k(\bar\ft_k\cap\Gr_n)$) or equivalently the composition $$\CC_{\bar\ft_i\cap\Gr_n}\xrightarrow{[\bar\ft_i\cap\Gr_n]}\omega_{\bar\ft_i\cap\Gr_n}[i-n]=\bar\iota^!_i\omega_{\Gr_n}[i-n]\xrightarrow{\bar\iota^!_i(\alpha)} \bar\iota^!_i\omega_{\Gr_n}[i-n+k].$$} since by definition, $\tilde{v}_{-n}$ is the fundamental class of the whole $\Gr_n$. As $r_i$ preserves the grading of cohomology groups, we also have $\tilde{v}_i= \iota_{i*}\iota^!_*\tilde{v}_{-n}$.
+
+  It is known that $\ft_i\cap \Gr_n$ is smooth hence by identifying the Borel-Moore homology and the usual cohomology, we have
+$$ \iota_i^!(\alpha)=[\ft_i\cap\Gr_n]\cap\iota_i^*(\alpha)= \iota_i^*\iota_{i*}[\ft_i\cap \Gr_n]\cap\iota_i^*(\alpha)=e(N_{\ft_k\cap\Gr_n}(\Gr_n))\cdot \iota_i^*(\alpha).$$
+Similarly, the transversal slice $\mathfrak{S}_i$ of $\ft_i$ in $\Gr_n$ and $\mathfrak{S}_i\cap \Gr_n$ is also isomorphic to an affine space $\AA^\frac{n+i}{2}$ with origin at $i$ and $T\times \Gm$ action by wights $h+(i-1)\hbar,\ h+(i-2)\hbar,\dots,\ h+\frac{i-n}{2}\hbar$ where $h\in \mathfrak{sl}_2=\t^\vee$. 
+
+Then we conclude the formula:
+\begin{equation}
+    \tilde{v}_i= (h+(i-1)\hbar)(h+(i-2)\hbar)\dots\ (h+\frac{i-n}{2}\hbar)\tilde{v}_{-n}.
+\end{equation}
+
+
+For the $T$-equivairnat
+
+\section{Harish-Chandra bimodules}
+
+\section{equivariant cohomology}
+
+Let us recall some basic fact about equivariant cohomology:
+
+\begin{defn}
+    Let $G$ be a topological group, let $\on{E}G$ be a contractible $G$-bundle and $X$ be a topological $G$-space. Then we define the equivariant cohomology by
+    $$H^\bullet_{G}(X)=H^{\bullet}(\on{E}(G)\times^{G} X).$$
+\end{defn}
+
+\begin{fact}
+    \begin{enumerate}
+        \item The equivariant cohomology algebra is independent of the choice of $\on{E}G$.
+        \item If we can find $\on{E}_nG$ such that $H^i(\on{E}_nG/G)=0$ for all $0\leq i\leq 0$, then 
+        $$ H^i_{G}(X)=H^{i}(\on{E}_n(G)\times^{G} X),\quad 0\leq i\leq n. $$
+        \item We have a fiber sequence:
+        $$X\hookrightarrow \on{E}(G)\times^{G} X \twoheadrightarrow \on{E}(G)\times^{G} \pt:= \on{B}G.$$
+        Thus we have a Leray-Serre spectral sequence:
+        \begin{equation}
+             H^{p}_G(\pt)\otimes H^q(X)\implies H^{p+q}_G(X).
+        \end{equation}
+    \end{enumerate}
+\end{fact}
+
+\begin{ex}
+    For $G=\Gm$, $\on{E}_nG$ could be $\AA^{n+1}-0$. Thus $H^\bullet_{G}(\pt)=\CC[t]$ where the degree of the variable is $2$.
+\end{ex}
+
+\begin{fact}
+    The equivariant cohomology theory also admits the usual formulas as the ordinary cohomology theory: the K\"unnth formulas, long exact sequences, Gysin sequences, etc.
+\end{fact}
+
+\begin{ex}
+    For a torus $T$, $H^\bullet_T(\pt)=\bigotimes_{\rk T} H^\bullet_{\Gm}(\pt)=\CC[\t]$ where $\t=\on{Lie}(T)$.
+\end{ex}
+
+\begin{ex}
+    Let $G$ be a complex reductive group, and let $K$(respectively $S$) be a maximal compact subgroup of $G$ (respectively $T$).  The fiber bundle $K/WS\hookrightarrow \on{E}K/WS\twoheadrightarrow \on{E}K/K$ induces a spectral sequence:
+    $H^p_W(\on{EK}/S)\otimes H^q(K/WS) \implies H^{p+q}_K(\pt)=H^{p+q}_G(\pt)$.
+
+    \begin{lem}
+        Let $Y$ be a smooth $W$-bundle, then $H^\bullet(Y/W)=H^\bullet(Y)^W$.
+    \end{lem}
+    \begin{proof}
+        By the decomposition theorem, the sheaf $\pi_*(\CC_Y)[\dim Y]$ is semi-simple in the category of perverse sheaves. Thus we have the projection $\pi_*(\CC_Y)[\dim Y]=\bigoplus_{\rho\in \on{Irr}(G)} \rho\otimes\L^{\oplus n_\rho}$. Therefore, we have a canonical projection $\CC_{Y/W}\to \pi_*(\CC_Y)\twoheadrightarrow \pi_*(\CC_Y)_{triv}$. It is easy to check that this map is an isomorphism stalk-wisely.
+    \end{proof}
+
+    Therefore $H^\bullet(K/WS)=H^\bullet(K/S)^W=H^\bullet(G/B)^W=\CC$ and hence $H^{\bullet}_G(\pt)=H^\bullet_W(\on{E}K/S)=H^\bullet_S(\pt)^W=H^\bullet_T(\pt)^W$. This implies the restriction map $H^\bullet_G(\pt)\to H^\bullet_T(\pt)$ can be identified with the inclusion $\CC[\t]^W\hookrightarrow \CC[\t]$.
+\end{ex}
+
+\begin{defn}
+    By GIT, there is a set canonical generators $c_1,\dots,c_r\in \CC[\t]^W$ such that $\CC[\t]^W=\CC[c_1,\dots,c_r]$. We denote the degree of $c_i$ in the the cohomology algebra as $2m_i$ called the exponent of $G$.
+\end{defn}
+
+\begin{ex}
+    If $G=\on{GL}_n$, $c_i=t_1^i+\dots +t_n^i\in \CC[\t]=\CC[t_1,\dots,t_n]$.
+\end{ex}
+
+Use a similar method, we have the following results:
+\begin{prop}
+   Let $G$ be a reductive group. For any $G$-variety $X$, we have the formulas:
+    \begin{enumerate}
+        \item $H^\bullet_G(X)=H^\bullet_T(X)^W$;
+        \item $H^\bullet_T(X)=H^\bullet_G(X)\times_{H^\bullet_G(\pt)}H^\bullet_T(\pt)$.
+    \end{enumerate}
+\end{prop}
+
+\begin{thm}[Localization Theorem]
+    Let $T$ be a torus and let $X$ be a $T$-variety. For $\F\in D_T^{\on{b}}(X)$, there is a finite set $S\subset \CC[\t]$ such that the natural map
+    $$ S^{-1}H^\bullet_T(X;\F)\to  S^{-1}H^\bullet_T(X^T;\F)=S^{-1}\CC[\t]\otimes H^\bullet(X^T;\F)$$
+    is an isomorphism
+\end{thm}
+
+
+\section{bibliography}
+
+\begin{thebibliography}{99}
+
+\bibitem{AB} S.~Arkhipov, R.~Bezrukavnikov, {\em Perverse sheaves on
+affine flags and Langlands dual group}, preprint math.RT/0201073,
+to appear in Israel Journal of Mathematics.
+
+\bibitem{ABG} S.~Arkhipov, R.~Bezrukavnikov, V.~Ginzburg, 
+{\em Quantum groups, the loop Grassmannian, and the Springer
+  resolution}, J. Amer. Math. Soc. {\bf 17}, no. 3 (2004), 595--678. 
+
+\bibitem{B} H.~Bass, {\em Algebraic $K$-theory}, W.~A.~Benjamin, Inc.,
+  New York--Amsterdam (1968), xx+762pp.
+
+\bibitem{Bedr} A.~Beilinson, {\em On the derived category of perverse 
+sheaves}, in {\em $K$-theory, Arithmetic and Geometry}, Lect. Notes
+  Math. {\bf 1289} (1987), 27--41.
+
+\bibitem{BBD} A.~Beilinson, J.~Bernstein and P.~Deligne,
+{\em Faisceaux Pervers}, Ast{\'e}risque {\bf 100} (1982), 5--171.
+
+\bibitem{BD} A.~Beilinson, V.~Drinfeld, {\em Quantization of Hitchin's
+integrable system and Hecke eigensheaves}, preprint available at
+http://www.math.uchicago.edu/$\tilde{\ }$arinkin.
+
+\bibitem{BGS} A.~Beilinson, V.~Ginzburg, W.~Soergel, 
+{\em Koszul duality patterns in representation theory}, 
+J. Amer. Math. Soc. {\bf 9} no. 2 (1996), 473--527.
+
+\bibitem{BF} R.~Bezrukavnikov and M.~Finkelberg, {\em Equivariant Satake category and Kostant-Whittaker reduction}, Mosc. Math. J. {\bf 8} (2008), 30--72
+
+\bibitem{BN} D.~Ben-Zvi, D.~Nadler, {\em Loop spaces and Langlands
+  parameters}, preprint math/0706.0322.
+
+\bibitem{BL} J.~Bernstein, V.~Lunts, {\em Equivariant sheaves and
+  functors}, Lecture Notes in Math. {\bf 1578} (1994).
+
+\bibitem{Hu} R.~Bezrukavnikov, {\em Cohomology of tilting modules over
+quantum groups and $t$-structures on derived categories of coherent
+sheaves}, Invent. Math. {\bf 166} (2006), 327--357.
+
+\bibitem{BFM} R.~Bezrukavnikov, M.~Finkelberg, I.~Mirkovi\'c,
+{\em Equivariant homology and $K$-theory of affine Grassmannians and
+Toda lattices}, Compositio Math. {\bf 141} (2005), 746--768.
+
+\bibitem{BG} A. Braverman, D. Gaitsgory,
+{\em Geometric Eisenstein series,} Invent. Math. {\bf 150}
+  (2002), 287--384.
+
+
+\bibitem{W2} P.~Deligne, {\em Conjecture de Weil. II},
+Publ. Math. IHES {\bf 52} (1980), 137--252.
+
+\bibitem{DM} P.~Deligne, J.~Milne, {\em Tannakian categories},
+in {\em Hodge cycles, Motives and Shimura varieties,}
+Lect. Notes in Math. {\bf 900} (1982), 101--228.
+
+%\bibitem{Dr} V.~Drinfeld, {\em On a conjecture of Kashiwara},
+%Math. Res. Lett. {\bf 8} (2001), 713--728.
+
+\bibitem{Fu} W.~Fulton, {\em Intersection theory}, 
+Ergebnisse der Mathematik und ihrer Grenzgebiete, Folge 3,
+Springer-Verlag, Berlin, 1998. 
+
+\bibitem{Ga} D.~Gaitsgory, {\em Construction of central elements in
+  the affine Hecke algebra via nearby cycles}, Invent. Math. {\bf 144}
+  (2001), 253--280.
+
+\bibitem{G0} V.~Ginzburg, {\em Perverse sheaves and $\CC^*$-actions},
+J. Amer. Math. Soc. {\bf 4} no. 3 (1991), 483--490.
+
+\bibitem{G} V.~Ginzburg, {\em Perverse sheaves on a Loop Group and
+Langlands duality}, alg-geom/9511007.
+
+\bibitem{G1} V.~Ginzburg, {\em Loop Grassmannian cohomology, the principal
+nilpotent and Kostant theorem}, math.AG/9803141.
+
+\bibitem{Kim} B.~Kim, {\em Quantum cohomology of flag manifolds $G/B$
+and quantum Toda lattices}, Ann. of Math. (2) {\bf 149} (1999), 129--148.
+
+\bibitem{K1} B.~Kostant, {\em On Whittaker vectors and representation
+  theory}, Invent. Math. {\bf 48} no. 2 (1978), 101--184.
+
+\bibitem{K2} B.~Kostant, {\em Quantization and representation theory},
+in {\em Representation theory of Lie groups}, London
+Math. Soc. Lect. Note Series {\bf 34} (1979), 287--316.
+
+\bibitem{L} G.~Lusztig, {\em Singularities, character formulas, and
+a $q$-analogue of weight multiplicities}, Ast{\'e}risque {\bf 101-102}
+(1983), 208--229.
+
+\bibitem{MV} I.~Mirkovi\'c, K.~Vilonen, {\em Geometric Langlands duality
+and representations of algebraic groups over commutative rings}, 
+Ann. of Math. (2) {\bf 166} (2007), 95--143.
+
+\end{thebibliography}
+
+
+
+\end{document}
